@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="samuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="adresse">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="latitude" Type="Double" />
+    <Property Name="longitude" Type="Double" />
+  </EntityType>
+  <EntityType Name="emergencycategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="attendance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="clockIn" Type="DateTime" Precision="3" />
+    <Property Name="clockOut" Type="DateTime" Precision="3" />
+    <Property Name="duration" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="idUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Boolean" />
+    <Property Name="nameUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="phoneUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="emergencycall">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="patientName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="createAt" Type="DateTime" Precision="3" />
+    <Property Name="isByCall" Type="Boolean" />
+    <Property Name="addBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="createBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="sex" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="patientType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="patientCount" Type="Int32" />
+    <Property Name="accidentType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="subCategoryId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="emergysos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="createBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="namePatient" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="medicalrecord">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="patientName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="dateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="bloodType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="iduser" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="subcategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="categoryId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="usermodel">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fullName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="token" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="createAt" Type="DateTime" Precision="3" />
+    <Property Name="updateAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="samuEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="adresse" EntityType="Self.adresse" />
+    <EntitySet Name="emergencycategory" EntityType="Self.emergencycategory" />
+    <EntitySet Name="attendance" EntityType="Self.attendance" />
+    <EntitySet Name="emergencycall" EntityType="Self.emergencycall" />
+    <EntitySet Name="emergysos" EntityType="Self.emergysos" />
+    <EntitySet Name="medicalrecord" EntityType="Self.medicalrecord" />
+    <EntitySet Name="subcategory" EntityType="Self.subcategory" />
+    <EntitySet Name="usermodel" EntityType="Self.usermodel" />
+  </EntityContainer>
+</Schema>

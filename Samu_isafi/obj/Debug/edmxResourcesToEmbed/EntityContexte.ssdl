@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="samuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adresse">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="255" />
+    <Property Name="latitude" Type="float" />
+    <Property Name="longitude" Type="float" />
+  </EntityType>
+  <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'samu.dbo.attendance' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+  <EntityType Name="attendance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="clockIn" Type="datetime" />
+    <Property Name="clockOut" Type="datetime" />
+    <Property Name="duration" Type="varchar" MaxLength="255" />
+    <Property Name="idUser" Type="varchar" MaxLength="255" />
+    <Property Name="status" Type="bit" />
+    <Property Name="nameUser" Type="varchar" MaxLength="255" />
+    <Property Name="phoneUser" Type="varchar" MaxLength="255" />
+    <Property Name="position" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'samu.dbo.emergencycall' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+  <EntityType Name="emergencycall">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="patientName" Type="varchar" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+    <Property Name="status" Type="varchar" MaxLength="20" />
+    <Property Name="createAt" Type="datetime" />
+    <Property Name="isByCall" Type="bit" />
+    <Property Name="addBy" Type="varchar" MaxLength="20" />
+    <Property Name="createBy" Type="varchar" MaxLength="255" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="255" />
+    <Property Name="address" Type="varchar" MaxLength="255" />
+    <Property Name="sex" Type="varchar" MaxLength="255" />
+    <Property Name="patientType" Type="varchar" MaxLength="255" />
+    <Property Name="patientCount" Type="int" />
+    <Property Name="accidentType" Type="varchar" MaxLength="20" />
+    <Property Name="subCategoryId" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="emergencycategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'samu.dbo.emergysos' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+  <EntityType Name="emergysos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="createBy" Type="varchar" MaxLength="255" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="255" />
+    <Property Name="namePatient" Type="varchar" MaxLength="255" />
+    <Property Name="address" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'samu.dbo.medicalrecord' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+  <EntityType Name="medicalrecord">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="patientName" Type="varchar" MaxLength="255" />
+    <Property Name="dateOfBirth" Type="date" />
+    <Property Name="bloodType" Type="varchar" MaxLength="255" />
+    <Property Name="iduser" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'samu.dbo.subcategory' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+  <EntityType Name="subcategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+    <Property Name="categoryId" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'samu.dbo.usermodel' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+  <EntityType Name="usermodel">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="password" Type="varchar" MaxLength="255" />
+    <Property Name="fullName" Type="varchar" MaxLength="255" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="255" />
+    <Property Name="role" Type="varchar" MaxLength="20" />
+    <Property Name="token" Type="varchar" MaxLength="255" />
+    <Property Name="createAt" Type="datetime" />
+    <Property Name="updateAt" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="samuModelStoreContainer">
+    <EntitySet Name="adresse" EntityType="Self.adresse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emergencycategory" EntityType="Self.emergencycategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="attendance" EntityType="Self.attendance" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [attendance].[id] AS [id], 
+    [attendance].[clockIn] AS [clockIn], 
+    [attendance].[clockOut] AS [clockOut], 
+    [attendance].[duration] AS [duration], 
+    [attendance].[idUser] AS [idUser], 
+    [attendance].[status] AS [status], 
+    [attendance].[nameUser] AS [nameUser], 
+    [attendance].[phoneUser] AS [phoneUser], 
+    [attendance].[position] AS [position]
+    FROM [dbo].[attendance] AS [attendance]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="emergencycall" EntityType="Self.emergencycall" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [emergencycall].[id] AS [id], 
+    [emergencycall].[patientName] AS [patientName], 
+    [emergencycall].[description] AS [description], 
+    [emergencycall].[status] AS [status], 
+    [emergencycall].[createAt] AS [createAt], 
+    [emergencycall].[isByCall] AS [isByCall], 
+    [emergencycall].[addBy] AS [addBy], 
+    [emergencycall].[createBy] AS [createBy], 
+    [emergencycall].[phoneNumber] AS [phoneNumber], 
+    [emergencycall].[address] AS [address], 
+    [emergencycall].[sex] AS [sex], 
+    [emergencycall].[patientType] AS [patientType], 
+    [emergencycall].[patientCount] AS [patientCount], 
+    [emergencycall].[accidentType] AS [accidentType], 
+    [emergencycall].[subCategoryId] AS [subCategoryId]
+    FROM [dbo].[emergencycall] AS [emergencycall]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="emergysos" EntityType="Self.emergysos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [emergysos].[id] AS [id], 
+    [emergysos].[createBy] AS [createBy], 
+    [emergysos].[phoneNumber] AS [phoneNumber], 
+    [emergysos].[namePatient] AS [namePatient], 
+    [emergysos].[address] AS [address]
+    FROM [dbo].[emergysos] AS [emergysos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="medicalrecord" EntityType="Self.medicalrecord" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [medicalrecord].[id] AS [id], 
+    [medicalrecord].[patientName] AS [patientName], 
+    [medicalrecord].[dateOfBirth] AS [dateOfBirth], 
+    [medicalrecord].[bloodType] AS [bloodType], 
+    [medicalrecord].[iduser] AS [iduser]
+    FROM [dbo].[medicalrecord] AS [medicalrecord]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="subcategory" EntityType="Self.subcategory" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [subcategory].[id] AS [id], 
+    [subcategory].[name] AS [name], 
+    [subcategory].[description] AS [description], 
+    [subcategory].[categoryId] AS [categoryId]
+    FROM [dbo].[subcategory] AS [subcategory]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="usermodel" EntityType="Self.usermodel" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [usermodel].[id] AS [id], 
+    [usermodel].[email] AS [email], 
+    [usermodel].[password] AS [password], 
+    [usermodel].[fullName] AS [fullName], 
+    [usermodel].[phoneNumber] AS [phoneNumber], 
+    [usermodel].[role] AS [role], 
+    [usermodel].[token] AS [token], 
+    [usermodel].[createAt] AS [createAt], 
+    [usermodel].[updateAt] AS [updateAt]
+    FROM [dbo].[usermodel] AS [usermodel]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

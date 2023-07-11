@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="samuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adresse">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="255" />
+    <Property Name="latitude" Type="float" />
+    <Property Name="longitude" Type="float" />
+  </EntityType>
+  <EntityType Name="attendance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clockIn" Type="datetime" />
+    <Property Name="clockOut" Type="datetime" />
+    <Property Name="duration" Type="varchar" MaxLength="255" />
+    <Property Name="idUser" Type="varchar" MaxLength="255" />
+    <Property Name="status" Type="bit" />
+    <Property Name="nameUser" Type="varchar" MaxLength="255" />
+    <Property Name="phoneUser" Type="varchar" MaxLength="255" />
+    <Property Name="position" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="emergencycall">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="patientName" Type="varchar" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+    <Property Name="status" Type="varchar" MaxLength="20" />
+    <Property Name="createAt" Type="datetime" />
+    <Property Name="isByCall" Type="bit" />
+    <Property Name="addBy" Type="varchar" MaxLength="20" />
+    <Property Name="createBy" Type="varchar" MaxLength="255" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="255" />
+    <Property Name="address" Type="varchar" MaxLength="255" />
+    <Property Name="sex" Type="varchar" MaxLength="255" />
+    <Property Name="patientType" Type="varchar" MaxLength="255" />
+    <Property Name="patientCount" Type="int" />
+    <Property Name="accidentType" Type="varchar" MaxLength="20" />
+    <Property Name="subCategoryId" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="emergencycategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="emergysos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="createBy" Type="varchar" MaxLength="255" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="255" />
+    <Property Name="namePatient" Type="varchar" MaxLength="255" />
+    <Property Name="address" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="medicalrecord">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="patientName" Type="varchar" MaxLength="255" />
+    <Property Name="dateOfBirth" Type="date" />
+    <Property Name="bloodType" Type="varchar" MaxLength="255" />
+    <Property Name="iduser" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="subcategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+    <Property Name="categoryId" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="usermodel">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="password" Type="varchar" MaxLength="255" />
+    <Property Name="fullName" Type="varchar" MaxLength="255" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="255" />
+    <Property Name="role" Type="varchar" MaxLength="20" />
+    <Property Name="token" Type="varchar" MaxLength="255" />
+    <Property Name="createAt" Type="datetime" />
+    <Property Name="updateAt" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="samuModelStoreContainer">
+    <EntitySet Name="adresse" EntityType="Self.adresse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="attendance" EntityType="Self.attendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emergencycall" EntityType="Self.emergencycall" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emergencycategory" EntityType="Self.emergencycategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emergysos" EntityType="Self.emergysos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="medicalrecord" EntityType="Self.medicalrecord" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subcategory" EntityType="Self.subcategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usermodel" EntityType="Self.usermodel" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

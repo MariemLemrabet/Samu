@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="samuModelStoreContainer" CdmEntityContainer="samuEntities1">
+    <EntitySetMapping Name="adresse">
+      <EntityTypeMapping TypeName="samuModel.adresse">
+        <MappingFragment StoreEntitySet="adresse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="attendance">
+      <EntityTypeMapping TypeName="samuModel.attendance">
+        <MappingFragment StoreEntitySet="attendance">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="clockIn" ColumnName="clockIn" />
+          <ScalarProperty Name="clockOut" ColumnName="clockOut" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="nameUser" ColumnName="nameUser" />
+          <ScalarProperty Name="phoneUser" ColumnName="phoneUser" />
+          <ScalarProperty Name="position" ColumnName="position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emergencycall">
+      <EntityTypeMapping TypeName="samuModel.emergencycall">
+        <MappingFragment StoreEntitySet="emergencycall">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="patientName" ColumnName="patientName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="isByCall" ColumnName="isByCall" />
+          <ScalarProperty Name="addBy" ColumnName="addBy" />
+          <ScalarProperty Name="createBy" ColumnName="createBy" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="patientType" ColumnName="patientType" />
+          <ScalarProperty Name="patientCount" ColumnName="patientCount" />
+          <ScalarProperty Name="accidentType" ColumnName="accidentType" />
+          <ScalarProperty Name="subCategoryId" ColumnName="subCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emergencycategory">
+      <EntityTypeMapping TypeName="samuModel.emergencycategory">
+        <MappingFragment StoreEntitySet="emergencycategory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emergysos">
+      <EntityTypeMapping TypeName="samuModel.emergysos">
+        <MappingFragment StoreEntitySet="emergysos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="createBy" ColumnName="createBy" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="namePatient" ColumnName="namePatient" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="medicalrecord">
+      <EntityTypeMapping TypeName="samuModel.medicalrecord">
+        <MappingFragment StoreEntitySet="medicalrecord">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="patientName" ColumnName="patientName" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="bloodType" ColumnName="bloodType" />
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subcategory">
+      <EntityTypeMapping TypeName="samuModel.subcategory">
+        <MappingFragment StoreEntitySet="subcategory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usermodel">
+      <EntityTypeMapping TypeName="samuModel.usermodel">
+        <MappingFragment StoreEntitySet="usermodel">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
